@@ -1,13 +1,13 @@
 # Mercury Parser API
 
-This repo provides a drop-in replacement for the Mercury Parser API. In fact, this
-AWS Lambda-based API for running the Mercury Parser is the same code 
+This repo provides a drop-in replacement for the [Mercury Parser](https://github.com/postlight/mercury-parser) API. 
+In fact, this [AWS Lambda](https://aws.amazon.com/lambda/)-based API for running the Mercury Parser is the same code 
 and serverless infrastructure that powered the Mercury Parser API.
 
 ## Installation
 
 ```bash
-# If you don't already have the serverless cli installed, do that
+# If you don't already have the mercury parser api installed, do that
 git clone https://github.com/postlight/mercury-parser-api.git
 
 # Install dependencies
