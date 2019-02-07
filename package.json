@@ -17,11 +17,9 @@
     "tail:html": "serverless logs --function parseHtml --tail",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:deploy": "cd api_check && MIX_ENV=dev_deploy mix test",
-    "test:deploy:prod": "cd api_check && MIX_ENV=prod_deploy mix test",
     "build": "serverless webpack",
-    "watch:nytimes": "serverless invoke local --watch --function mercuryParser --path fixtures/nytimes.json",
-    "watch:html": "serverless invoke local --watch --function parseHtml --path fixtures/html.json"
+    "test:parse": "serverless invoke local --function mercuryParser --path fixtures/nytimes.json",
+    "test:html": "serverless invoke local --function parseHtml --path fixtures/html.json"
   },
   "dependencies": {
     "@postlight/mercury-parser": "^1.1.0",
