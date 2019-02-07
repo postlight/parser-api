@@ -1,5 +1,7 @@
 # Mercury Parser API
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/postlight/mercury-parser-api.svg)](https://greenkeeper.io/)
+
 This repo provides a drop-in replacement for the [Mercury Parser](https://github.com/postlight/mercury-parser) API. 
 In fact, this [AWS Lambda](https://aws.amazon.com/lambda/)-based API for running the Mercury Parser is the same code 
 and serverless infrastructure that powered the Mercury Parser API.
