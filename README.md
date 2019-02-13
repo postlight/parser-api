@@ -26,7 +26,7 @@ yarn serve
 
 ## Deploy
 
-Assuming you've already set up your default AWS credentials (or have set a different AWS profile via [the profile field](serverless.yml#L21)), simply run:
+Assuming you've already [set up your default AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration) (or have set a different AWS profile via [the profile field](serverless.yml#L21)), simply run:
 
 ```bash
 yarn deploy
