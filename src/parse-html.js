@@ -18,7 +18,7 @@ const parseHtml = async ({ body, headers }, context, cb) => {
     });
   }
 
-  const result = await Mercury.parse(url, { html });
+  const result = await Mercury.parse(url, { html, fallback: false });
 
   return cb(
     null,

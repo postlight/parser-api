@@ -22,7 +22,7 @@ const mercuryParser = async (
     });
   }
 
-  const result = await Mercury.parse(url);
+  const result = await Mercury.parse(url, { fallback: false });
 
   return cb(
     null,
