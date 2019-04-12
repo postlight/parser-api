@@ -18,7 +18,41 @@ const parseHtml = async ({ body, headers }, context, cb) => {
     });
   }
 
-  const result = await Mercury.parse(url, { html, fallback: false });
+  // Black listing
+
+  const blacklist = [
+    'https://sspai.com/',
+    'https://www.nikonpassion.com',
+    'https://m.weibo.cn',
+  ];
+
+  for (let index = 0; index < blacklist.length; index += 1) {
+    if (url.includes(blacklist[index])) {
+      return cb(
+        null,
+        corsSuccessResponse({
+          title: null,
+          content: null,
+          author: null,
+          date_published: null,
+          lead_image_url: null,
+          dek: null,
+          next_page_url: null,
+          url: null,
+          domain: null,
+          excerpt: null,
+          word_count: null,
+          direction: null,
+          total_pages: null,
+          rendered_pages: null,
+        })
+      );
+    }
+  }
+
+  // ---
+
+  const result = await Mercury.parse(url, { html });
 
   return cb(
     null,

@@ -789,7 +789,7 @@
 
 "@postlight/mercury-parser@https://github.com/shinyfrog/mercury-parser.git":
   version "2.0.0"
-  resolved "https://github.com/shinyfrog/mercury-parser.git#9467b0e0236ef00dd00f6734af8af512e1d4afe1"
+  resolved "https://github.com/shinyfrog/mercury-parser.git#e8bcdeb819c0ca73471cf3f7cee106e4096905aa"
   dependencies:
     "@babel/runtime-corejs2" "^7.2.0"
     "@postlight/ci-failed-test-reporter" "^1.0"
