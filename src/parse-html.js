@@ -24,6 +24,7 @@ const parseHtml = async ({ body, headers }, context, cb) => {
     'https://sspai.com/',
     'https://www.nikonpassion.com',
     'https://m.weibo.cn',
+    'https://mp.weixin.qq.com/',
   ];
 
   for (let index = 0; index < blacklist.length; index += 1) {
