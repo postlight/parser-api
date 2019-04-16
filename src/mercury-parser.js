@@ -29,6 +29,10 @@ const mercuryParser = async (
     'https://www.nikonpassion.com',
     'https://m.weibo.cn',
     'https://mp.weixin.qq.com/',
+    'https://github.com',
+    'forums.adobe.com',
+    'https://www.volkskrant.nl',
+    'https://www.managementimpact.nl',
   ];
 
   for (let index = 0; index < blacklist.length; index += 1) {

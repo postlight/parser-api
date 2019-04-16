@@ -8,7 +8,10 @@ import {
 } from './utils';
 
 const parseHtml = async ({ body, headers }, context, cb) => {
-  const { url, html } = JSON.parse(body);
+  // const { url, html } = JSON.parse(body);
+
+  const { url } = JSON.parse(body);
+
   const secretToken = 'F794A060-946C-4317-A01B-A50CD5EA8D3C';
 
   if (!headers['x-api-key'].includes(secretToken)) {
@@ -25,6 +28,10 @@ const parseHtml = async ({ body, headers }, context, cb) => {
     'https://www.nikonpassion.com',
     'https://m.weibo.cn',
     'https://mp.weixin.qq.com/',
+    'https://github.com',
+    'forums.adobe.com',
+    'https://www.volkskrant.nl',
+    'https://www.managementimpact.nl',
   ];
 
   for (let index = 0; index < blacklist.length; index += 1) {
@@ -52,8 +59,8 @@ const parseHtml = async ({ body, headers }, context, cb) => {
   }
 
   // ---
-
-  const result = await Mercury.parse(url, { html });
+  const result = await Mercury.parse(url);
+  // const result = await Mercury.parse(url, { html });
 
   return cb(
     null,
