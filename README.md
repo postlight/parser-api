@@ -9,13 +9,12 @@ and serverless infrastructure that powered the Mercury Parser API. The AWS Lambd
 ## Installation
 
 
-```
+```bash
 # Upgrade / install Node
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
 
-bash
 # If you don't already have the mercury parser api installed, do that
 git clone https://github.com/postlight/mercury-parser-api.git
 
@@ -41,7 +40,8 @@ Before deploying, you need to:
 
 To deploy, simply run:
 
-```bash
+```
+
 yarn deploy
 ```
 
