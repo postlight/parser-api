@@ -22,6 +22,11 @@ provider:
   # you can overwrite defaults here
   #  stage: dev
   #  region: us-east-1
+  # In case you do not want the service to be publicly available uncomment the line below and 
+  # the  lines designating functions as private below
+  # Value of the apiKey will be printed after deploy and it needs to be sent in the `x-api-key` header
+  # apiKeys:
+  # - apiKey
 
 custom:
   webpack:
@@ -39,6 +44,7 @@ functions:
           method: get
           path: parser
           cors: true
+          # private: true
       # Ping every 5 minutes to avoid cold starts
       - schedule:
           rate: rate(5 minutes)
@@ -53,6 +59,7 @@ functions:
           method: post
           path: parse-html
           cors: true
+          # private: true
       # Ping every 5 minutes to avoid cold starts
       - schedule:
           rate: rate(5 minutes)
