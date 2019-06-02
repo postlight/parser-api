@@ -46,7 +46,7 @@
     "nodemon": "^1.18.9",
     "prettier": "^1.14.2",
     "serverless": "^1.32.0",
-    "serverless-offline": "^4.0.0",
+    "serverless-offline": "^5.0.0",
     "serverless-webpack": "^5.2.0",
     "ts-jest": "^24.0.0",
     "ts-loader": "^5.3.1",
