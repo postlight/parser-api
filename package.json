@@ -43,7 +43,7 @@
     "husky": "^1.0.0",
     "jest": "^24.1.0",
     "lint-staged": "^8.0.0",
-    "nodemon": "^1.18.9",
+    "nodemon": "^2.0.0",
     "prettier": "^1.14.2",
     "serverless": "^1.32.0",
     "serverless-offline": "^4.0.0",
