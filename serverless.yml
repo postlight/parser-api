@@ -15,7 +15,7 @@ service: mercury
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.x
   # If you want to change to a different AWS profile
   # from ~/.aws/credentials, you can do so here
   profile: default
