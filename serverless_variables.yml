@@ -1,0 +1,46 @@
+# Function variable definition
+Global:
+  myStage: ${opt:stage, self:provider.stage} # use cli --stage if given, otherwise use provider.stage
+  mySecurityGroupIds:
+    intern: "sg-0ab64047ad6104b22" # default internal VPC security group
+    stage: "sg-0aec23f16aeec557a" # default staging VPC security group
+    prod: "sg-0fa2ebe0ce1523247" # default production VPC security group
+  mySubnetIds:
+    intern:
+      1a: "subnet-0804bc635a287da28" # internal serverless_a
+      1b: "subnet-0d496b985b45d0029" # internal serverless_b
+      1c: "subnet-0e4f2671655f8ef9b" # internal serverless_c
+    stage: 
+      1a: "subnet-071dae15f207811e0" # staging serverless_a
+      1b: "subnet-03dde1edc089745a3" # staging serverless_b
+      1c: "subnet-0667ff3be795d7386" # staging serverless_c
+    prod: 
+      1a: "subnet-0b51a4ef81b73303c" # production serverless_a
+      1b: "subnet-03e38eb4b225098db" # production serverless_b
+      1c: "subnet-0b560d9b0972757c8" # production serverless_c
+webpack:
+  webpackConfig: ./webpack.config.js
+  includeModules: true
+  packager: 'yarn' # Packager that will be used to package your external modules
+mercuryParser:
+  myDescription: "Mercury Parser API, GET endpoint to parse url's"
+  myFunctionTimeout: 10
+  myMemorySize: 256
+  myScheduleName: MercuryParserAPI-${self:custom.Global.myStage}-mercuryParser-node12
+  myScheduleDescription: "cronjob to avoid cold starts of Lambda MercuryParserAPI-${self:custom.Global.myStage}-mercuryParser-node12"
+  myScheduleRate: rate(5 minutes)
+  myScheduleEnable: false
+  myHttpMethod: GET
+  myHttpPath: parser
+  myHttpCors: true
+parseHtml:
+  myDescription: "Mercury Parser API, POST endpoint to parse url's"
+  myFunctionTimeout: 10
+  myMemorySize: 256
+  myScheduleName: MercuryParserAPI-${self:custom.Global.myStage}-parseHtmltest-node12
+  myScheduleDescription: "cronjob to avoid cold starts of Lambda MercuryParserAPI-${self:custom.Global.myStage}-parseHtmltest-node12"
+  myScheduleRate: rate(5 minutes)
+  myScheduleEnable: false
+  myHttpMethod: POST
+  myHttpPath: parse-html
+  myHttpCors: true

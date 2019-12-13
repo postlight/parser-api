@@ -1,63 +1,23 @@
-# Welcome to Serverless!
-#
-# This file is the main config file for your service.
-# It's very minimal at this point and uses default values.
-# You can always add more config options for more control.
-# We've included some commented out config examples here.
-# Just uncomment any of them to get that config option.
-#
-# For full config options, check the docs:
-#    docs.serverless.com
-#
-# Happy Coding!
-
-service: mercury
+service: MercuryParserAPI-node12
 
 provider:
   name: aws
+  region: eu-west-1
   runtime: nodejs12.x
-  # If you want to change to a different AWS profile
-  # from ~/.aws/credentials, you can do so here
   profile: default
-  # you can overwrite defaults here
-  #  stage: dev
-  #  region: us-east-1
-
-custom:
-  webpack:
-    webpackConfig: ./webpack.config.js
-    includeModules: true
-    packager: 'yarn' # Packager that will be used to package your external modules
-
-functions:
-  mercuryParser:
-    handler: src/mercury-parser.default
-    timeout: 10
-    memorySize: 256
-    events:
-      - http:
-          method: get
-          path: parser
-          cors: true
-      # Ping every 5 minutes to avoid cold starts
-      - schedule:
-          rate: rate(5 minutes)
-          enabled: true
-
-  parseHtml:
-    handler: src/parse-html.default
-    timeout: 10
-    memorySize: 256
-    events:
-      - http:
-          method: post
-          path: parse-html
-          cors: true
-      # Ping every 5 minutes to avoid cold starts
-      - schedule:
-          rate: rate(5 minutes)
-          enabled: true
+  stage: prod # default deployment environment
+  vpc:
+    securityGroupIds:
+      - ${self:custom.Global.mySecurityGroupIds.${self:custom.Global.myStage}}
+    subnetIds:
+      - ${self:custom.Global.mySubnetIds.${self:custom.Global.myStage}.1a}
+      - ${self:custom.Global.mySubnetIds.${self:custom.Global.myStage}.1b}
+      - ${self:custom.Global.mySubnetIds.${self:custom.Global.myStage}.1c}
 
 plugins:
   - serverless-webpack
   - serverless-offline
+
+functions: ${file(serverless_functions.yml)}
+
+custom: ${file(serverless_variables.yml)}

@@ -1,0 +1,34 @@
+# Lambda function definition
+mercuryParser-node12:
+  handler: src/mercury-parser.default
+  description: ${self:custom.mercuryParser.myDescription}
+  timeout: ${self:custom.mercuryParser.myFunctionTimeout}
+  memorySize: ${self:custom.mercuryParser.myMemorySize}
+  events:
+    - http:
+        method: ${self:custom.mercuryParser.myHttpMethod}
+        path: ${self:custom.mercuryParser.myHttpPath}
+        cors: ${self:custom.mercuryParser.myHttpCors}
+    # Ping every 5 minutes to avoid cold starts
+    - schedule:
+        name: ${self:custom.mercuryParser.myScheduleName}
+        description: ${self:custom.mercuryParser.myScheduleDescription}
+        rate: ${self:custom.mercuryParser.myScheduleRate}
+        enabled: ${self:custom.mercuryParser.myScheduleEnable}
+
+parseHtml-node12:
+  handler: src/parse-html.default
+  description: ${self:custom.parseHtml.myDescription}
+  timeout: ${self:custom.parseHtml.myFunctionTimeout}
+  memorySize: ${self:custom.parseHtml.myMemorySize}
+  events:
+    - http:
+        method: ${self:custom.parseHtml.myHttpMethod}
+        path: ${self:custom.parseHtml.myHttpPath}
+        cors: ${self:custom.parseHtml.myHttpCors}
+    # Ping every 5 minutes to avoid cold starts
+    - schedule:
+        name: ${self:custom.parseHtml.myScheduleName}
+        description: ${self:custom.parseHtml.myScheduleDescription}
+        rate: ${self:custom.parseHtml.myScheduleRate}
+        enabled: ${self:custom.parseHtml.myScheduleEnable}
