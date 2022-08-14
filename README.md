@@ -3,12 +3,18 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/postlight/mercury-parser-api.svg)](https://greenkeeper.io/)
 
 This repo provides a drop-in replacement for the [Mercury Parser](https://github.com/postlight/mercury-parser) API. 
-In fact, this [AWS Lambda](https://aws.amazon.com/lambda/)-based API for running the Mercury Parser is the same code 
-and serverless infrastructure that powered the Mercury Parser API.
+In fact, this [AWS Lambda](https://aws.amazon.com/lambda/)-based API for running the [Mercury Parser](https://mercury.postlight.com/web-parser/) is the same code 
+and serverless infrastructure that powered the Mercury Parser API. The AWS Lambda free tier provides 1,000,000 free requests per month.
 
 ## Installation
 
+
 ```bash
+# Upgrade / install Node
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+
 # If you don't already have the mercury parser api installed, do that
 git clone https://github.com/postlight/mercury-parser-api.git
 
@@ -26,9 +32,16 @@ yarn serve
 
 ## Deploy
 
-Assuming you've already [set up your default AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration) (or have set a different AWS profile via [the profile field](serverless.yml#L21)), simply run:
+Before deploying, you need to:
 
-```bash
+1. [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+
+2. [Set up your default AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration) (or have set a different AWS profile via [the profile field](serverless.yml#L21)). Follow this [guide for setting up your credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/#creating-aws-access-keys), using this gist of [suggested AWS IAM permissions](https://gist.github.com/ServerlessBot/7618156b8671840a539f405dea2704c8)
+
+To deploy, simply run:
+
+```
+
 yarn deploy
 ```
 
