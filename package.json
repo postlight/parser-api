@@ -1,8 +1,8 @@
 {
-  "name": "mercury-api",
+  "name": "parser-api",
   "version": "0.0.1",
   "author": "Postlight",
-  "description": "The serverless Mercury Parser API",
+  "description": "The serverless Postlight Parser API",
   "main": "src/handler.js",
   "scripts": {
     "deploy:env": "cross-env-shell sls deploy --stage $NODE_ENV",
@@ -13,16 +13,16 @@
     "precommit": "lint-staged",
     "serve": "serverless offline start",
     "serve:watch": "nodemon -e js,ts,jsx,tsx -x serverless offline start",
-    "tail:parser": "serverless logs --function mercuryParser --tail",
+    "tail:parser": "serverless logs --function postlightParser --tail",
     "tail:html": "serverless logs --function parseHtml --tail",
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "serverless webpack",
-    "test:parse": "serverless invoke local --function mercuryParser --path fixtures/nytimes.json",
+    "test:parse": "serverless invoke local --function postlightParser --path fixtures/nytimes.json",
     "test:html": "serverless invoke local --function parseHtml --path fixtures/html.json"
   },
   "dependencies": {
-    "@postlight/mercury-parser": "^2.0.0",
+    "@postlight/parser": "^2.2.2",
     "@types/aws-lambda": "^8.10.15"
   },
   "devDependencies": {

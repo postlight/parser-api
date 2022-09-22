@@ -6,10 +6,10 @@ import {
   runWarm,
 } from './utils/index.ts';
 
-const parseHtml = async ({ body }, context, cb) => {
-  const { url, html } = JSON.parse(body);
+const parser = async ({ queryStringParameters }, context, cb) => {
+  const { url } = queryStringParameters;
 
-  const result = await Parser.parse(url, { html });
+  const result = await Parser.parse(url);
 
   return cb(
     null,
@@ -19,4 +19,4 @@ const parseHtml = async ({ body }, context, cb) => {
   );
 };
 
-export default runWarm(parseHtml);
+export default runWarm(parser);

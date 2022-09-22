@@ -1,16 +1,16 @@
-# Mercury Parser API
+# Postlight Parser API
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/postlight/mercury-parser-api.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/postlight/parser-api.svg)](https://greenkeeper.io/)
 
-This repo provides a drop-in replacement for the [Mercury Parser](https://github.com/postlight/mercury-parser) API. 
-In fact, this [AWS Lambda](https://aws.amazon.com/lambda/)-based API for running the Mercury Parser is the same code 
-and serverless infrastructure that powered the Mercury Parser API.
+This repo provides a drop-in replacement for the [Postlight Parser](https://github.com/postlight/parser) API.
+In fact, this [AWS Lambda](https://aws.amazon.com/lambda/)-based API for running the Postlight Parser is the same code
+and serverless infrastructure that powered the Postlight Parser API.
 
 ## Installation
 
 ```bash
-# If you don't already have the mercury parser api installed, do that
-git clone https://github.com/postlight/mercury-parser-api.git
+# If you don't already have the Postlight Parser api installed, do that
+git clone https://github.com/postlight/parser-api.git
 
 # Install dependencies
 yarn install
