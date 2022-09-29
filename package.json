@@ -5,19 +5,22 @@
   "description": "The serverless Postlight Parser API",
   "main": "src/handler.js",
   "scripts": {
+    "build": "serverless webpack",
     "deploy:env": "cross-env-shell sls deploy --stage $NODE_ENV",
     "deploy": "cross-env NODE_ENV=dev yarn deploy:env",
     "deploy:prod": "cross-env NODE_ENV=prod yarn deploy:env",
     "deploy:stage": "cross-env NODE_ENV=stage yarn deploy:env",
+    "dev": "nodemon index.js",
+    "format": "eslint \"**/*.js\" --fix && prettier \"**/*.js\" --write"
     "lint": "tslint -c tslint.json --fix './src/**/*.ts' && eslint ./src --fix",
     "precommit": "lint-staged",
     "serve": "serverless offline start",
     "serve:watch": "nodemon -e js,ts,jsx,tsx -x serverless offline start",
+    "start": "node index.js",
     "tail:parser": "serverless logs --function postlightParser --tail",
     "tail:html": "serverless logs --function parseHtml --tail",
     "test": "jest",
     "test:watch": "jest --watch",
-    "build": "serverless webpack",
     "test:parse": "serverless invoke local --function postlightParser --path fixtures/nytimes.json",
     "test:html": "serverless invoke local --function parseHtml --path fixtures/html.json"
   },
